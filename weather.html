@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather App</title>
+  <link rel="stylesheet" href="weather.css">
+  <link href ="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet">
+ 
+  <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
+    rel="stylesheet"/>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet"> 
+</head>
+<body>
+  <header>
+    <nav class="nav-section">
+     <div class="icon-section">
+      <i class="ri-layout-grid-fill"></i>
+      <i class="ri-notification-4-line"></i>
+      <div class="seattle">
+        <i class="fa-solid fa-location-dot"></i>
+        <span class="cityName">Lagos</span>
+      </div>
+     </div>
+     <div class="error">
+      <p>Invalid city name</p>
+     </div>
+     <div class="middle-section">
+      <i class="fa-solid fa-magnifying-glass" id="search-icon"></i>
+      <input type="text" placeholder="Search City..." class="city-input">
+     </div>
+     <div class="right-section">
+      <i class="ri-settings-2-line"></i>
+      <span class="moon"><i class="ri-moon-fill"></i></span>
+      <i class="ri-user-2-fill"></i>
+
+     </div>
+    </nav>
+  </header>
+  <section class="main">
+    <div class="main-div">
+      <div class="row">
+        <div class="date">
+        <span>
+          Today
+        </span>
+        <span>
+          Tommorrow
+        </span>
+        <span>
+          Next 7 days
+        </span>
+      </div>
+        <div class="forcast">
+          <span>Forcast</span>
+          <span>Air quality</span>
+          
+          <span>Chances of rain</span>
+        </div>
+      </div>
+    </div>
+<section class="main-section">
+    <main class="current-weather">
+      <div class="current-day">
+          <span id="days">Monday</span>
+          <span id="times">11:42 PM</span>
+      </div>
+      <div class="current-temp in-line">
+          <div class="temp bold"></div>
+          <div class="details">
+            <div class="details-1">
+              <div class="in-line">
+              <span>Real-Feel:</span>
+              <span class="realFeel bold"></span>
+              
+              </div>
+              
+              <div class="in-line">
+                <span>Wind: </span>
+               <span class="wind bold"></span>
+              </div>
+              <div class="in-line">
+                <span>Pressure:</span>
+                <span class="pressure bold"></span>
+                
+              </div>
+              <div class="in-line">
+                <span>Humidity:</span>
+                <span class="humidity bold"></span>
+            </div>
+            </div>
+            <div class="details-2">
+              <div><img src="/images/rain.png" alt="" class="weather-icon"></div>
+              <div class="sun in-line">
+                <span class="sunr">Sunrise:</span>
+                <span class="sunrise bold"></span>
+               </div>
+              <div class="sun in-line">
+                <span>Sunset:</span>
+                <span class="sunset bold"></span>
+               </div>
+           
+            </div>
+            </div>
+          </div>
+
+          
+      </div>
+     
+    </main>
+    <div class="rain-section">
+      <h4>Tue</h4>
+      <div class="img-div"><img src="/images/rain.png" alt=""></div>
+      <h3>10°</h3>
+    </div>
+    <div class="rain-section">
+      <h4>Wed</h4>
+      <div class="img-div"><img src="/images/mist.png" alt=""></div>
+      <h3>15°</h3>
+    </div>
+    <div class="rain-section">
+      <h4>Thu</h4>
+      <div class="img-div"><img src="/images/clouds.png" alt=""></div>
+      <h3>11°</h3>
+    </div>
+    <div class="rain-section">
+      <h4>Fri</h4>
+      <div class="img-div"><img src="/images/rain.png" alt=""></div>
+      <h3>18°</h3>
+    </div>
+    <div class="rain-section">
+      <h4>Sat</h4>
+      <div class="img-div"><img src="/images/mist.png" alt=""></div>
+      <h3>12°</h3>
+    </div>
+    <div class="rain-section">
+      <h4>Sun</h4>
+      <div class="img-div"><img src="/images/clear.png" alt=""></div>
+      <h3>10°</h3>
+    </div>
+<div class="graph">
+    <div class="graph-section">
+      
+      <canvas id="myChart"></canvas>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <script>
+      const ctx = document.getElementById('myChart');
+    
+      new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: ['10AM', '11AM', '12AM', '01PM', '02PM', '03PM'],
+          datasets: [{
+            label: '',
+            data: [12, 19, 3, 5, 2, 3],
+            borderWidth: 1
+          }]
+        },
+        options: {
+          scales: {
+            y: {
+              // beginAtheavy: true
+              labels:['Heavy', 'Sunny', 'Rainy'],
+            }
+          }
+        }
+      });
+    </script>
+    
+    </div>
+    <div>
+     
+  
+  </section>
+  <div class="map-section">
+    <div class="others">
+      <div class="global">
+      <span>Global Map</span>
+    </div>
+      <div class="wide">
+        <div class="view-wide" style="display: inline-block;">
+      <span>view wide</span>
+    </div>
+      <div class="cities">
+        <span>Other Large Cities</span>
+        <span>Show all <i class="ri-arrow-drop-right-line"></i></span>
+      </div>
+     
+    </div>
+    </div>
+    <div class="general">
+    <div class="map-others">
+<div class="map">
+
+<!-- 
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d253228.94234676615!2d3.740241804979206!3d7.387227746020635!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x10398d77eeff086f%3A0x3b33e0f76e8e04a9!2sIbadan%2C%20Oyo!5e0!3m2!1sen!2sng!4v1718729913183!5m2!1sen!2sng" width="800" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> -->
+    <iframe width="800" height="350" src="https://embed.windy.com/embed.html?type=map&location=coordinates&metricRain=default&metricTemp=default&metricWind=default&zoom=4&overlay=wind&product=ecmwf&level=surface&lat=4.39&lon=7.734" frameborder="0"></iframe>
+
+  </div>
+</div>
+ 
+<div class="mini-general">
+
+  <div class="other-section other-section-one">
+    <div class="left">
+   <h5 class="countryName"></h5>
+   <h3 class="cityName1"></h3>
+  <h4>Mostly clear</h4>
+  </div>
+  <div class="right">
+    <div class="clouds-div"><img src="/images/clear.png" alt=""></div>
+    <h3 class="temp temp1"></h3>
+  </div>
+  
+  
+  </div>
+  
+   <div class="other-section other-section-two">
+    <div class="left">
+   <h5 class="countryName2"></h5>
+   <h3 class="cityName2"></h3>
+  <h4>Mostly Rainy</h4>
+  </div>
+  <div class="right">
+    <div class="clouds-div"><img src="/images/rain.png" alt=""></div>
+    <h3 class="temp temp2"></h3>
+  </div>
+  
+  
+  </div> 
+   <div class="other-section other-section-three">
+    <div class="left">
+   <h5 class="countryName3"></h5>
+   <h3 class="cityName3"></h3>
+  <h4>Mostly Cloudy</h4>
+  </div>
+  <div class="right">
+    <div class="clouds-div"><img src="/images/clouds.png" alt=""></div>
+    <h3 class="temp temp3"></h3>
+  </div>
+  
+  
+  </div>
+</div>
+    
+
+  </div>
+
+  </div>
+
+  </section>
+
+<script src="weather.js"></script>
+  <script src="https://kit.fontawesome.com/4aa8b6485d.js" crossorigin="anonymous"></script>
+</body>
+</html>
